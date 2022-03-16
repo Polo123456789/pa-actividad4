@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 4</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row m-1 p-2">
+            <details>
+                <summary>Descripcion</summary>
+                <p>
+                    Detalles ...
+                    <!-- TODO -->
+                </p>
+            </details>
+        </div>
+        <hr />
+        <div class="row m-1 p-2">
+            <div class="d-flex flex-row align-items-center m-1">
+                <label for="available-languages" class="w-25">Seleccione un lenguaje:</label>
+                <select id="available-languages" class="form-select form-select-sm">
+                    <option selected>Cargando lenguajes disponibles ...</option>
+                </select>
+            </div>
+            <textarea id="code" name="code" class="form-control m-2" style="height: 50vh;"></textarea>
+            <button class="btn btn-dark w-auto m-2">Correr</button>
+        </div>
+        <hr />
+        <div class="row m-1 p-2" id="code-results">
+            <mark>TODO: Diseñar como se veran los resutlados</mark>
+        </div>
+    </div>
+</body>
+
+</html>
