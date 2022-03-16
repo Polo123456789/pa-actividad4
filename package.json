@@ -1,0 +1,25 @@
+{
+  "name": "pa-actividad4",
+  "version": "1.0.0",
+  "description": "Actividad 4, Programación Avanzada, TDS 2022",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Polo123456789/pa-actividad4.git"
+  },
+  "author": "Pablo Sanchez (Carnet: 21001135)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Polo123456789/pa-actividad4/issues"
+  },
+  "homepage": "https://github.com/Polo123456789/pa-actividad4#readme",
+  "devDependencies": {
+    "electron": "17.1.2"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
