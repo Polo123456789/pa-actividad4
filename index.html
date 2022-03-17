@@ -14,9 +14,14 @@
             <details>
                 <summary>Descripcion</summary>
                 <p>
-                    Detalles ...
-                    <!-- TODO -->
+                    <mark>TODO:</mark>&nbsp;Describir brevemente Piston API
                 </p>
+                <blockquote>
+                    Su aplicación también debe describir brevemente el servicio que está utilizando.
+
+                    No basta con tener un campo de texto y un botón para realizar una petición, tiene que indicar que
+                    API se está usando y que consulta realiza el campo de ingreso de datos.
+                </blockquote>
             </details>
         </div>
         <hr />
@@ -24,17 +29,38 @@
             <div class="d-flex flex-row align-items-center m-1">
                 <label for="available-languages" class="w-25">Seleccione un lenguaje:</label>
                 <select id="available-languages" class="form-select form-select-sm">
-                    <option selected>Cargando lenguajes disponibles ...</option>
+                    <option selected value="none">Cargando lenguajes disponibles ...</option>
                 </select>
             </div>
-            <textarea id="code" name="code" class="form-control m-2" style="height: 50vh;"></textarea>
-            <button class="btn btn-dark w-auto m-2">Correr</button>
+            <textarea id="code" name="code" class="form-control m-2" style="height: 50vh;"
+                spellcheck="false"></textarea>
+            <button class="btn btn-dark w-auto m-2" id="run">Correr</button>
         </div>
         <hr />
         <div class="row m-1 p-2" id="code-results">
-            <mark>TODO: Diseñar como se veran los resutlados</mark>
         </div>
     </div>
+    <template id="loading-results-template">
+        <p class="text-center">Cargando resultados ...</p>
+        <div class="d-flex justify-content-center">
+            <div class="spinner-grow text-dark">
+                <span class="visually-hidden">Cargando resultado ...</span>
+            </div>
+        </div>
+    </template>
+    <template id="result-template">
+        <h1 class="text-center">Resultado</h1>
+        <p><strong>STDOUT:</strong></p>
+        <pre class="bg-success bg-opacity-10 rounded p-2" id="stdout"></pre>
+        <p><strong>STDERR:</strong></p>
+        <pre class="bg-danger bg-opacity-10 rounded p-2" id="stderr"></pre>
+        <p><strong>Valor de retorno:</strong>&nbsp;<span id="return-value"></span></p>
+    </template>
+    <script src="index.js"></script>
 </body>
 
 </html>
+
+<!--
+vim:textwidth=120
+-->
