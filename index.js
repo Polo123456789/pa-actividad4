@@ -52,7 +52,7 @@ const loadLanguages = (languages) => {
 fetch("https://emkc.org/api/v2/piston/runtimes")
     .then(response => response.json())
     .then(loadLanguages)
-    .catch(err => alert(err));
+    .catch(err => console.error(err));
 
 /**
  * @typedef {{

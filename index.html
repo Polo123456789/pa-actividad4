@@ -12,16 +12,25 @@
     <div class="container">
         <div class="row m-1 p-2">
             <details>
-                <summary>Descripcion</summary>
-                <p>
-                    <mark>TODO:</mark>&nbsp;Describir brevemente Piston API
-                </p>
-                <blockquote>
-                    Su aplicación también debe describir brevemente el servicio que está utilizando.
-
-                    No basta con tener un campo de texto y un botón para realizar una petición, tiene que indicar que
-                    API se está usando y que consulta realiza el campo de ingreso de datos.
-                </blockquote>
+                <!-- Tomado del README y convertido con Pandoc -->
+                <h4 id="api-utilizada">API utilizada</h4>
+                <p>Para este proyecto elegí usar <code>Piston API</code>. <code>Piston</code> es un motor de ejecución
+                    de código de propósito general de alto rendimiento. Sobresale en la ejecución de código no confiable
+                    y posiblemente malicioso sin temor a efectos dañinos.</p>
+                <p>La API consta de las siguientes urls:</p>
+                <pre><code>GET  https://emkc.org/api/v2/piston/runtimes
+POST https://emkc.org/api/v2/piston/execute</code></pre>
+                <p><a href="https://github.com/engineer-man/piston">Link a <code>Piston</code></a></p>
+                <h4 id="descripción-del-funcionamiento-de-la-aplicación">Descripción del funcionamiento de la aplicación
+                </h4>
+                <p>La app esta hecha para correr en electron y en un navegador normal. La interfaz gráfica esta hecha
+                    con HTML y Bootstrap.</p>
+                <p>La app primero hace una petición a <code>runtimes</code> para conocer los lenguajes disponibles.</p>
+                <p>Luego da la opción de elegir el lenguaje, y permite que se escriba el código.</p>
+                <p>Una vez se presiona el botón “Correr”, se hace una petición a <code>execute</code> enviado el
+                    lenguaje, versión, y código que escribió el usuario.</p>
+                <p>Una vez se recibe la respuesta, se le muestra al usuario el <code>stdout</code>, <code>stderr</code>,
+                    y el valor de retorno del programa que escribió.</p>
             </details>
         </div>
         <hr />
