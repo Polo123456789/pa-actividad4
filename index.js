@@ -99,18 +99,15 @@ const showCodeResults = (response) => {
         return;
     }
 
-    /** @type HTMLTemplateElement */
-    const resultTemplate = document.querySelector("#result-template");
+    const result = createCodeResults(
+        response.run.stdout,
+        response.run.stderr,
+        response.run.code
+    );
 
-    const stdout = resultTemplate.content.querySelector("#stdout");
-    const stderr = resultTemplate.content.querySelector("#stderr");
-    const retVal = resultTemplate.content.querySelector("#return-value");
-
-    stdout.innerHTML = response.run.stdout;
-    stderr.innerHTML = response.run.stderr;
-    retVal.innerHTML = response.run.code.toString();
-
-    codeResults.innerHTML = resultTemplate.innerHTML;
+    //codeResults.innerHTML = resultTemplate.innerHTML;
+    codeResults.innerHTML = "";
+    codeResults.appendChild(result);
 }
 
 runBtn.addEventListener("click", () => {
@@ -126,9 +123,9 @@ runBtn.addEventListener("click", () => {
         }]
     };
 
-    /** @type HTMLTemplateElement */
-    const loadingTemplate = document.querySelector("#loading-results-template");
-    codeResults.innerHTML = loadingTemplate.innerHTML;
+    const loadingResultsElement = document.createElement("loading-results");
+    codeResults.innerHTML = "";
+    codeResults.appendChild(loadingResultsElement);
 
     fetch("https://emkc.org/api/v2/piston/execute", {
         method: "POST",

@@ -49,22 +49,7 @@ POST https://emkc.org/api/v2/piston/execute</code></pre>
         <div class="row m-1 p-2" id="code-results">
         </div>
     </div>
-    <template id="loading-results-template">
-        <p class="text-center">Cargando resultados ...</p>
-        <div class="d-flex justify-content-center">
-            <div class="spinner-grow text-dark">
-                <span class="visually-hidden">Cargando resultado ...</span>
-            </div>
-        </div>
-    </template>
-    <template id="result-template">
-        <h1 class="text-center">Resultado</h1>
-        <p><strong>STDOUT:</strong></p>
-        <pre class="bg-success bg-opacity-10 rounded p-2" id="stdout"></pre>
-        <p><strong>STDERR:</strong></p>
-        <pre class="bg-danger bg-opacity-10 rounded p-2" id="stderr"></pre>
-        <p><strong>Valor de retorno:</strong>&nbsp;<span id="return-value"></span></p>
-    </template>
+    <script src="components.js"></script>
     <script src="index.js"></script>
 </body>
 
