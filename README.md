@@ -3,6 +3,35 @@ Programación Avanzada, Actividad 4
 
 Pablo Sanchez Galdamez, Carnet 21001135.
 
+<details>
+
+<summary>
+    Notas para la actividad 5
+</summary>
+
+Para crear la base de datos, corra en mysql el script ubicado en
+`./scripts/create-db.sql`.
+
+También tiene que crear las variables de entorno:
+
+* `MYSQL_USER`: Con su nombre de usuario de `mysql`.
+* `MYSQL_PASSWORD`: Con la contraseña.
+
+Opcionalmente también puede reemplazarlos directamente en el código en
+`main.js`:
+
+```
+// En la linea 5
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: process.env["MYSQL_USER"], // eg. "root"
+    password: process.env["MYSQL_PASSWORD"], // eg. "toor"
+    database: "pa-actividad5"
+});
+```
+
+</details>
+
 API utilizada
 -------------
 
