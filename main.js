@@ -1,23 +1,21 @@
 // @ts-check
-const {app, BrowserWindow} = require("electron");
-const mysql = require("mysql2");
-
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: process.env["MYSQL_USER"],
-    password: process.env["MYSQL_PASSWORD"],
-    database: "pa-actividad5"
-});
-
-connection.query("SELECT * FROM registro;", (err, results, fields) => {
-    console.trace(err)
-    console.trace(results);
-    console.trace(fields);
-})
+const {app, BrowserWindow, ipcMain} = require("electron");
+const path = require("path");
+const {
+    insertRegister
+} = require("./db-operations");
 
 let win = null;
 
 app.on("ready", () => {
-    win = new BrowserWindow();
+    win = new BrowserWindow({
+        webPreferences: {
+            preload: path.join(__dirname, "preload.js")
+        }
+    });
     win.loadFile("index.html")
 });
+
+ipcMain.on("save-code-result", (_evt, r) => {
+    insertRegister(r);
+})

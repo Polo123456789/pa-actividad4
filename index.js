@@ -1,5 +1,6 @@
-// @ts-check
 "use strict";
+
+/** @typedef {import("./db-types").registro} register */
 
 /** @type HTMLTextAreaElement */
 const code = document.querySelector("#code");
@@ -108,6 +109,17 @@ const showCodeResults = (response) => {
     //codeResults.innerHTML = resultTemplate.innerHTML;
     codeResults.innerHTML = "";
     codeResults.appendChild(result);
+
+    /** @type register */
+    const r = {
+        lenguaje: availableLanguages.value,
+        codigo: code.value,
+        stdout: response.run.stdout,
+        stderr: response.run.stderr,
+        valor_retorno: response.run.code,
+        fecha: new Date()
+    };
+    window.electron?.saveCodeResult(r);
 }
 
 runBtn.addEventListener("click", () => {
@@ -141,3 +153,16 @@ runBtn.addEventListener("click", () => {
         });
 
 });
+
+if (window.electron) {
+    /** @type HTMLButtonElement */
+    const queryDBBtn = document.createElement("button")
+    queryDBBtn.setAttribute("class", "btn btn-dark w-auto m-2");
+    queryDBBtn.innerText = "Consultar base de datos";
+    queryDBBtn.addEventListener("click", () => {
+        window.location.href = "consultar-db.html";
+    });
+
+    const inputSection = document.querySelector("#input-section");
+    inputSection.appendChild(queryDBBtn);
+}
