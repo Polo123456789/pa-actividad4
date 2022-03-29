@@ -22,7 +22,7 @@ ipcMain.on("save-code-result", (_evt, r) => {
     insertRegister(r);
 })
 
-ipcMain.on("get-languaje-list", () => {
+ipcMain.on("get-language-list", () => {
     getLanguageListFor(win);
 })
 

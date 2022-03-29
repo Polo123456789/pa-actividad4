@@ -8,7 +8,16 @@
 </head>
 <body>
     <div class="container">
-        Hola mundo
+        <div class="row m-1 p-2">
+            <div class="d-flex flex-row align-items-center m-1">
+                <label for="available-languages" class="w-25">Seleccione un lenguaje:</label>
+                <select id="available-languages" class="form-select form-select-sm">
+                    <option selected value="none">Cargando lenguajes disponibles ...</option>
+                </select>
+            </div>
+        </div>
     </div>
+    <script src="consultar-db.js"></script>
+    <script src="components.js"></script>
 </body>
 </html>

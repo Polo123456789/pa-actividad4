@@ -48,6 +48,7 @@ exports.getLanguageListFor = (win) => {
             if (err) {
                 console.log(err);
             }
+            console.log(result)
             win.webContents.send("language-list", result)
         }
     )
