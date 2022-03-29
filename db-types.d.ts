@@ -7,3 +7,9 @@ export interface registro {
     valor_retorno: number,
     fecha: Date
 }
+
+type language = {
+    lenguaje: string;
+}
+
+export type languageList = language[];

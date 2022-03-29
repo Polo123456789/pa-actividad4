@@ -3,6 +3,7 @@
 /** @typedef {import("./db-types").registro} register*/
 
 const mysql = require("mysql2");
+const {BrowserWindow} = require("electron");
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -30,9 +31,40 @@ exports.insertRegister = (register) => {
         ],
         (err) => {
             if (err) {
-                console.log(err); // TODO: Notify in window
+                console.log(err);
             }
         }
     )
     return true;
+};
+
+/**
+ * @param {BrowserWindow} win
+ */
+exports.getLanguageListFor = (win) => {
+    connection.query(
+        "SELECT DISTINCT lenguaje FROM registro;",
+        (err, result, _fields) => {
+            if (err) {
+                console.log(err);
+            }
+            win.webContents.send("language-list", result)
+        }
+    )
+};
+
+/**
+ * @param {BrowserWindow} win
+ */
+exports.getEntriesFor = (win, language) => {
+    connection.query(
+        "SELECT * FROM registro WHERE lenguaje = ?;",
+        [language],
+        (err, result, _fields) => {
+            if (err) {
+                console.log(err);
+            }
+            win.webContents.send("entries", result)
+        }
+    );
 }

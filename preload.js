@@ -1,11 +1,13 @@
 // @ts-check
 const {contextBridge, ipcRenderer} = require("electron");
 
-/** @typedef {import("./db-types").registro} register */
 
 contextBridge.exposeInMainWorld("electron", {
-    /**
-     * @argument {register} result
-     */
     saveCodeResult: (result) => ipcRenderer.send("save-code-result", result),
+    askForLanguajeList: () => ipcRenderer.send("get-language-list"),
+    processLanguageList: (callback) => ipcRenderer.on("language-list", callback),
+    // TODO
+    aksForEntries: (language) => ipcRenderer.send("get-entires", language),
+    // TODO
+    processEntries: (callback) => ipcRenderer.on("entries", callback)
 });
