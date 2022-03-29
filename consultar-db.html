@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Consultar DB</title>
+    <style>
+        .full-window-div {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(168, 168, 168, 0.8);
+            backdrop-filter: blur(1.5px);
+        }
+
+        .center-children {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
+
 <body>
     <div class="container">
         <div class="row m-1 p-2">
@@ -15,9 +34,54 @@
                     <option selected value="none">Cargando lenguajes disponibles ...</option>
                 </select>
             </div>
+            <button
+                class="btn btn-dark m-1 p-1 mx-auto"
+                style="max-width: 300px"
+                id="consult-btn"
+            >
+                Consultar
+            </button>
+        </div>
+        <div class="row m-1 p-2">
+            <table class="table table-sm table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Fecha</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="full-window-div center-children invisible" id="code-details">
+        <div
+            class="bg-white p-5 m-5 position-relative mw-100"
+            style="min-width: 60%; max-height: 60%; overflow: scroll;"
+        >
+            <button
+                class="btn btn-dark position-absolute top-0 end-0 p-2 m-2 rounded"
+                style="width: 40px; height: 40px;"
+            >
+                X
+            </button>
+            <h1 class="text-center">Codigo</h1>
+            <pre class="bg-light rounded p-2">Codigo</pre>
+            <code-results>
+                <pre slot="stdout">stdout</pre>
+                <pre slot="stderr">stderr</pre>
+                <span slot="return-val">0</span>
+            </code-results>
         </div>
     </div>
     <script src="consultar-db.js"></script>
     <script src="components.js"></script>
 </body>
+
 </html>
+
+<!--
+vim:textwidth=120
+-->

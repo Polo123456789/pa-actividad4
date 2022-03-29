@@ -7,7 +7,7 @@ contextBridge.exposeInMainWorld("electron", {
     askForLanguajeList: () => ipcRenderer.send("get-language-list"),
     processLanguageList: (callback) => ipcRenderer.on("language-list", callback),
     // TODO
-    aksForEntries: (language) => ipcRenderer.send("get-entires", language),
+    askForEntries: (language) => ipcRenderer.send("get-entries", language),
     // TODO
     processEntries: (callback) => ipcRenderer.on("entries", callback)
 });

@@ -65,6 +65,7 @@ exports.getEntriesFor = (win, language) => {
             if (err) {
                 console.log(err);
             }
+            console.log(result)
             win.webContents.send("entries", result)
         }
     );

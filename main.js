@@ -11,10 +11,13 @@ let win = null;
 
 app.on("ready", () => {
     win = new BrowserWindow({
+        show: false,
         webPreferences: {
             preload: path.join(__dirname, "preload.js")
         }
     });
+    win.maximize();
+    win.show();
     win.loadFile("index.html")
 });
 
